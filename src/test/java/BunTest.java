@@ -8,13 +8,12 @@ public class BunTest {
     private final String EXPECTED_NAME = "Оригинальная";
     private final float EXPECTED_PRICE = 150f;
 
-
     /**
      * Создание экземпляра булочки
      */
     @Before
     public void createNewBun() {
-     bun = new Bun(EXPECTED_NAME, EXPECTED_PRICE);
+        bun = new Bun(EXPECTED_NAME, EXPECTED_PRICE);
     }
 
     /**
@@ -23,7 +22,7 @@ public class BunTest {
     @Test
     public void bunGetNameTest() {
         String actualName = bun.getName();
-        assertEquals("Неверное название булочки", EXPECTED_NAME,actualName);
+        assertEquals("Неверное название булочки", EXPECTED_NAME, actualName);
     }
 
     /**
@@ -33,6 +32,6 @@ public class BunTest {
     public void bunGetPriceTest() {
         float actualPrice = bun.getPrice();
         float DELTA = 0f;
-        assertEquals("Неверная цена булочки", EXPECTED_PRICE,actualPrice, DELTA);
+        assertEquals("Неверная цена булочки", EXPECTED_PRICE, actualPrice, DELTA);
     }
 }

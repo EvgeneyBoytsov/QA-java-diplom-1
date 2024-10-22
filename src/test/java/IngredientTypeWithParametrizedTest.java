@@ -24,7 +24,12 @@ public class IngredientTypeWithParametrizedTest {
      * Проверка типов ингредиента
      */
     @Test
+    public void checkIngredientTypeTestWithParameterized() {
+        assertEquals("Неверный тип ингредиента", type.name(),name);
+    }
+
+    @Test
     public void checkIngredientTypeTest() {
-        assertEquals("Неверный тип ингредиента", name,type.name());
+        assertEquals("Неверный тип ингредиента", IngredientType.SAUCE, IngredientType.valueOf("SAUCE"));
     }
 }

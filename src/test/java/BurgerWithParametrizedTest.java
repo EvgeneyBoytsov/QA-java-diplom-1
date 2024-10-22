@@ -48,7 +48,7 @@ public class BurgerWithParametrizedTest {
      */
     @Test
     public void burgerGetPriceTest() {
-        Ingredient ingredient = new Ingredient(type,name,price);
+        Ingredient ingredient = new Ingredient(type, name, price);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         float expectedPrice = bun.price * 2 + ingredient.price;

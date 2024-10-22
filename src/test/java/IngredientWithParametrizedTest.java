@@ -29,9 +29,9 @@ public class IngredientWithParametrizedTest {
      */
     @Test
     public void testIngredientType(){
-        Ingredient ingredient = new Ingredient(type,name,price);
+        Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actualType = ingredient.getType();
 
-        assertEquals("Неверный тип ингредиента",type,actualType);
+        assertEquals("Неверный тип ингредиента", type, actualType);
     }
 }

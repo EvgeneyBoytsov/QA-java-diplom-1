@@ -27,7 +27,7 @@ public class IngredientTest {
     @Test
     public void ingredientGetNameTest() {
         String actualName = ingredient.getName();
-        assertEquals("Неверное название ингредиента", EXPECTED_NAME,actualName);
+        assertEquals("Неверное название ингредиента", EXPECTED_NAME, actualName);
     }
 
     /**
@@ -37,6 +37,6 @@ public class IngredientTest {
     public void ingredientGetPriceTest() {
         float actualPrice = ingredient.getPrice();
         float DELTA = 0f;
-        assertEquals("Неверная цена ингредиента", EXPECTED_PRICE,actualPrice, DELTA);
+        assertEquals("Неверная цена ингредиента", EXPECTED_PRICE, actualPrice, DELTA);
     }
 }

@@ -91,6 +91,7 @@ public class BurgerTest {
         burger.setBuns(bunMock);
         burger.addIngredient(ingredientMock);
         burger.getPrice();
+
         Mockito.verify(bunMock).getPrice();
         Mockito.verify(ingredientMock).getPrice();
     }
