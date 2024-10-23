@@ -25,7 +25,7 @@ public class IngredientTypeWithParametrizedTest {
      */
     @Test
     public void checkIngredientTypeTestWithParameterized() {
-        assertEquals("Неверный тип ингредиента", type.name(),name);
+        assertEquals("Неверный тип ингредиента", type.name(), name);
     }
 
     @Test

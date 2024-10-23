@@ -47,7 +47,7 @@ public class BurgerWithParametrizedTest {
      * Проверка расчета цены бургера с различными видами ингредиентов
      */
     @Test
-    public void burgerGetPriceTest() {
+    public void checkBurgerGetPriceWithParameterized() {
         Ingredient ingredient = new Ingredient(type, name, price);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);

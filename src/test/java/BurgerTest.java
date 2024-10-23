@@ -17,9 +17,9 @@ public class BurgerTest {
     private Burger burger;
 
     @Mock
-    private Bun bunMock;
+    private Bun bun;
     @Mock
-    private Ingredient ingredientMock;
+    private Ingredient ingredient;
     @Mock
     private Ingredient sauce;
     @Mock
@@ -37,22 +37,22 @@ public class BurgerTest {
      * Проверка добавления булочки в бургер
      */
     @Test
-    public void setBunTest() {
-        burger.setBuns(bunMock);
+    public void checkSetBun() {
+        burger.setBuns(bun);
 
         Bun actualBun = burger.bun;
-        assertEquals("Неправильный выбор булочки", bunMock, actualBun);
+        assertEquals("Неправильный выбор булочки", bun, actualBun);
     }
 
     /**
      * Проверка добавления ингредиентов в бургер
      */
     @Test
-    public void addIngredientTest() {
-        burger.addIngredient(ingredientMock);
+    public void checkAddIngredient() {
+        burger.addIngredient(ingredient);
 
         List<Ingredient> actualIngredient = burger.ingredients;
-        List<Ingredient> expectedIngredient = List.of(ingredientMock);
+        List<Ingredient> expectedIngredient = List.of(ingredient);
         assertEquals("Неверный ингредиент", expectedIngredient, actualIngredient);
     }
 
@@ -60,8 +60,8 @@ public class BurgerTest {
      * Проверка удаления ингредиентов в бургере
      */
     @Test
-    public void removeIngredientTest() {
-        burger.addIngredient(ingredientMock);
+    public void checkRemoveIngredient() {
+        burger.addIngredient(ingredient);
         burger.removeIngredient(0);
 
         List<Ingredient> actualIngredient = burger.ingredients;
@@ -73,7 +73,7 @@ public class BurgerTest {
      * Проверка перемещения позиций ингредиентов в бургере
      */
     @Test
-    public void moveIngredientTest() {
+    public void checkMoveIngredient() {
         burger.addIngredient(sauce);
         burger.addIngredient(filling);
         burger.moveIngredient(0,1);
@@ -87,41 +87,41 @@ public class BurgerTest {
      * Проверка расчета цены бургера
      */
     @Test
-    public void getPriceTest() {
-        burger.setBuns(bunMock);
-        burger.addIngredient(ingredientMock);
+    public void checkBurgerGetPrice() {
+        burger.setBuns(bun);
+        burger.addIngredient(ingredient);
         burger.getPrice();
 
-        Mockito.verify(bunMock).getPrice();
-        Mockito.verify(ingredientMock).getPrice();
+        Mockito.verify(bun).getPrice();
+        Mockito.verify(ingredient).getPrice();
     }
 
     /**
      * Проверка получения рецепта бургера
      */
     @Test
-    public void getReceiptTest() {
-        Mockito.when(bunMock.getName()).thenReturn("original");
-        Mockito.when(bunMock.getPrice()).thenReturn(100f);
-        burger.setBuns(bunMock);
+    public void checkGetReceipt() {
+        Mockito.when(bun.getName()).thenReturn("original");
+        Mockito.when(bun.getPrice()).thenReturn(100f);
+        burger.setBuns(bun);
 
-        Mockito.when(ingredientMock.getType()).thenReturn(SAUCE);
-        Mockito.when(ingredientMock.getName()).thenReturn("tar-tar");
-        Mockito.when(ingredientMock.getPrice()).thenReturn(49f);
+        Mockito.when(ingredient.getType()).thenReturn(SAUCE);
+        Mockito.when(ingredient.getName()).thenReturn("tar-tar");
+        Mockito.when(ingredient.getPrice()).thenReturn(49f);
 
-        Mockito.when(ingredientMock.getType()).thenReturn(FILLING);
-        Mockito.when(ingredientMock.getName()).thenReturn("angus");
-        Mockito.when(ingredientMock.getPrice()).thenReturn(149f);
-        burger.addIngredient(ingredientMock);
+        Mockito.when(ingredient.getType()).thenReturn(FILLING);
+        Mockito.when(ingredient.getName()).thenReturn("angus");
+        Mockito.when(ingredient.getPrice()).thenReturn(149f);
+        burger.addIngredient(ingredient);
 
-        StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bunMock.getName()));
+        StringBuilder receipt = new StringBuilder(String.format("(==== %s ====)%n", bun.getName()));
         List<Ingredient> ingredients = burger.ingredients;
 
         for (Ingredient ingredient : ingredients) {
-            receipt.append(String.format("= %s %s =%n", ingredientMock.getType().name().toLowerCase(), ingredient.getName()));
+            receipt.append(String.format("= %s %s =%n", this.ingredient.getType().name().toLowerCase(), ingredient.getName()));
         }
 
-        receipt.append(String.format("(==== %s ====)%n", bunMock.getName()));
+        receipt.append(String.format("(==== %s ====)%n", bun.getName()));
         receipt.append(String.format("%nPrice: %f%n", burger.getPrice()));
 
         String expectedReceipt = receipt.toString();

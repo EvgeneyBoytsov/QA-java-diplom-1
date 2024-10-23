@@ -28,7 +28,7 @@ public class IngredientWithParametrizedTest {
      * Проверка типов ингредиента
      */
     @Test
-    public void testIngredientType(){
+    public void checkIngredientType(){
         Ingredient ingredient = new Ingredient(type, name, price);
         IngredientType actualType = ingredient.getType();
 

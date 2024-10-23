@@ -20,7 +20,7 @@ public class BunTest {
      * Проверка получения названия булочки
      */
     @Test
-    public void bunGetNameTest() {
+    public void checkBunGetName() {
         String actualName = bun.getName();
         assertEquals("Неверное название булочки", EXPECTED_NAME, actualName);
     }
@@ -29,7 +29,7 @@ public class BunTest {
      * Проверка получения цены булочки
      */
     @Test
-    public void bunGetPriceTest() {
+    public void checkBunGetPrice() {
         float actualPrice = bun.getPrice();
         float DELTA = 0f;
         assertEquals("Неверная цена булочки", EXPECTED_PRICE, actualPrice, DELTA);
